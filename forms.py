@@ -25,3 +25,13 @@ class AddPetForm(FlaskForm):
     available = SelectField("Adoptability", 
                         choices=[('True','Available for Adoption'), ('False','Not Available for Adoption')], 
                         validate_choice=True, coerce=bool)
+
+
+class EditPetForm(FlaskForm):
+    """Form for editing photo_url, notes, availability status"""
+
+    photo_url = StringField("Image URL", validators=[URL(require_tld=True),Optional()])
+    notes = TextField("Notes")
+    available = SelectField("Adoptability", 
+                        choices=[('True','Available for Adoption'), ('False','Not Available for Adoption')], 
+                        validate_choice=True, coerce=bool)

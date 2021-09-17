@@ -10,7 +10,7 @@ Pets
 {% for pet in pets %}
 <div class="col-4">
     <img src="{{ pet.photo_url }}">
-    <p>{{ pet.name }}
+    <p><a href="/{{pet.id}}">{{ pet.name }}</a>
         {% if pet.available == True %}
             <b>is available!</b>
         {% endif %}
@@ -19,7 +19,7 @@ Pets
 {% endfor %}
 
 <!-- question: is the below form best practice for going to new page? -->
-<a class=" btn btn-primary" href="/add">
+<a class=" btn btn-info" href="/add">
     Add Pet
     </a>
 
