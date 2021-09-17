@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Pets
+{% endblock %}
+
+{% block content %}
+
+
+{% for pet in pets %}
+<div class="col-4">
+    <img src="{{ pet.photo_url }}">
+    <p>{{ pet.name }}
+        {% if pet.available == True %}
+            <b>is available!</b>
+        {% endif %}
+    </p>
+</div>
+{% endfor %}
+
+<!-- question: is the below form best practice for going to new page? -->
+<a class=" btn btn-primary" href="/users/new">
+    Add user
+    </a>
+
+    {% endblock %}
