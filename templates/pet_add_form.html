@@ -6,24 +6,29 @@ Add a new Pet
 
 {% block content %}
 
-<form id="pet-add-form" method="POST">
-    {{ form.hidden_tag() }} <!--add type=hidden form fields -->
-  
+<h1 class="">Add a new pet!</h1>
+
+<form id="pet-add-form" method="POST" class="col-8">
+    {{ form.hidden_tag() }}
+    <!--add type=hidden form fields -->
+
     {% for field in form
-           if field.widget.input_type != 'hidden' %}
-  
-      <p>
-        {{ field.label }}
-        {{ field }}
-  
+        if field.widget.input_type != 'hidden' %}
+
+    <p>
+        {{ field.label (class="form-label")}}
+        {{ field (class="form-control") }}
+
         {% for error in field.errors %}
-          {{ error }}
+            {{ error }}
         {% endfor %}
-      </p>
-  
+    </p>
+
     {% endfor %}
-  
-    <button type="submit">Add Pet</button>
-  </form>
-  
-    {% endblock %}
+    <div class="text-center">
+        <button class='btn btn-info form-actions px-5' type="submit">Add Pet</button>
+    </div>
+</form>
+
+
+{% endblock %}

@@ -6,21 +6,24 @@ Pets
 
 {% block content %}
 
-
-{% for pet in pets %}
-<div class="col-4">
-    <img src="{{ pet.photo_url }}">
-    <p><a href="/{{pet.id}}">{{ pet.name }}</a>
-        {% if pet.available == True %}
+<h1 class="info">Pets pets pets!</h1>
+<div class=row>
+    {% for pet in pets %}
+    <div class="p-3 m-2 border border-dark col-3">
+        <p>
+            <img src="{{ pet.photo_url }}" class="img-fluid">
+            <a href="/{{pet.id}}">{{ pet.name }}</a>
+            {% if pet.available == True %}
             <b>is available!</b>
-        {% endif %}
-    </p>
+            {% endif %}
+        </p>
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
-
-<!-- question: is the below form best practice for going to new page? -->
-<a class=" btn btn-info" href="/add">
-    Add Pet
+    <!-- question: is the below form best practice for going to new page? -->
+    <a class="btn btn-info mt-5 d-flex justify-content-center m-5" href="/add">
+        Add New Pet
     </a>
-
-    {% endblock %}
+    
+</div>
+{% endblock %}

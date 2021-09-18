@@ -11,27 +11,40 @@ class AddPetForm(FlaskForm):
     """Form for adding new pets"""
 
     name = StringField("Pet Name", 
-                        validators=[InputRequired()])
+        validators=[InputRequired()])
+
     species = SelectField("Species", 
-                        choices=[('cat','Cat'), ('dog','Dog'),('porcupine','Porcupine')], 
-                        validate_choice=True)
-    photo_url = StringField("Image URL", validators=[URL(require_tld=True),Optional()])
+        choices=[('cat','Cat'), ('dog','Dog'),('porcupine','Porcupine')], 
+        validate_choice=True)
+
+    photo_url = StringField("Image URL", 
+        validators=[URL(require_tld=True), Optional()])
 
     age = SelectField("Age", 
-                        choices=[('baby','Baby'), ('young','Young'),('adult','Adult'), ('senior','Senior')], 
-                        validate_choice=True,
-                        )
+        choices=[('baby','Baby'), ('young','Young'), 
+        ('adult','Adult'), ('senior','Senior')], 
+        validate_choice=True)
+
     notes = TextField("Notes")
+
     available = SelectField("Adoptability", 
-                        choices=[('True','Available for Adoption'), ('False','Not Available for Adoption')], 
-                        validate_choice=True, coerce=bool)
+        choices=[('True','Available for Adoption'), 
+        ('False','Not Available for Adoption')], 
+        validate_choice=True, 
+        coerce=bool)
 
 
 class EditPetForm(FlaskForm):
     """Form for editing photo_url, notes, availability status"""
 
-    photo_url = StringField("Image URL", validators=[URL(require_tld=True),Optional()])
+    photo_url = StringField(
+        "Image URL", 
+        validators=[URL(require_tld=True),Optional()])
+
     notes = TextField("Notes")
+
     available = SelectField("Adoptability", 
-                        choices=[('True','Available for Adoption'), ('False','Not Available for Adoption')], 
-                        validate_choice=True, coerce=bool)
+        choices=[('True','Available for Adoption'), 
+        ('False','Not Available for Adoption')], 
+        validate_choice=True, 
+        coerce=bool)
